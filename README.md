@@ -56,6 +56,14 @@ xnor(xnorgate,a,b);
 not(notgate,a);
 endmodule
 ~~~
+output:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/f2c10c00-7a6d-4949-b5a5-06ca9c943d48)
+
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/f7a7aa64-7ca7-49c4-a753-b157d06b7b67)
+
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -68,6 +76,13 @@ xor(sum,a,b);
 and(carry,a,b);
 endmodule
 ~~~
+output:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/b57a880f-2872-4347-9ac1-6d81fbb4abe1)
+
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/215abfba-2df5-4e18-8634-e77f97c78094)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Full Adder:
@@ -95,6 +110,12 @@ module rippe_adder(S, Cout, X, Y,Cin);
  fulladder u4(S[3], Cout,X[3], Y[3], w3);
 endmodule
 ~~~
+otput:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/d703c401-bd5c-4a03-9325-819aa6020d4f)
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/aedda4d1-1f4b-42f4-9808-f8844fd2fcae)
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Half Subtractor:
@@ -108,6 +129,12 @@ not (w1,B);
 and (Bo,B,w1);
 endmodule
 ~~~
+oyput:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/7031b6e2-f8ef-4ba2-87bc-654563f7a2ec)
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/bf4722b5-70c3-4687-8b8c-93c345fa1e04)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Full Subtractor:
@@ -119,7 +146,46 @@ output D, Bout;
   assign Bout = (~a & b) | (~(a ^ b) & c);
 endmodule  
 ~~~
+output:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/5a934534-9fe1-4c10-83f7-e8a56f5d24a0)
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/64a5317d-2d50-4259-a631-0bdb7030037d)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4 bit ripple carry adder
+```
+module rippe_adder(S, Cout, X, Y,Cin);
+input [3:0] X, Y;// Two 4-bit inputs
+input Cin;
+output [3:0] S;
+output Cout;
+wire wl, w2, w3;
+
+fulladder u1(S[0], w1,X[0], Y[0], Cin);
+fulladder u2(S[1], w2,X[1], Y[1], w1);
+fulladder u3(S[2], w3,X[2], Y[2], w2);
+fulladder u4(S[3], Cout,X[3], Y[3], w3);
+endmodule
+module fulladder(S, Co, X, Y, Ci);
+input X, Y, Ci;
+output S, Co;
+wire w1,w2,w3;
+//Structural code for one bit full adder 
+xor G1(wl, X, Y);
+xor G2(S, w1, Ci);
+and G3(w2, w1, Ci);
+and G4(w3, X, Y);
+or  G5(Co, w2, w3);
+endmodule
+```
+output:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/73c5e673-5e01-4356-bf1e-9eb15ee116e9)
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/8f576134-1f61-47bd-9896-cc096d0b7049)
+
+
 8 bit ripple carry adder:
 ~~~
 module fulladder(S, Co, X, Y, Ci);
@@ -150,25 +216,14 @@ module rippe_adder(S, Cout, X, Y,Cin);
  fulladder u8(S[7], Cout,X[7], Y[7], w7);
 endmodule
 ~~~
+output:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/294df087-07fa-4c49-b2d9-51b322dcbd78)
+
+elaborated design:
+![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/ceb72ca2-fb92-4e31-b9cb-ad732a9a743a)
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-OUTPUT:
-Logic gates:
-![Screenshot 2024-03-04 111823](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/274701a9-b2c4-435a-b0fc-ea2024578ace)
 
-Half adder:
-![Screenshot 2024-03-25 113852](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/0643adc7-208c-4041-ad98-c34f4a03e186
-
-Full adder:
-![Screenshot 2024-03-25 105831](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/883e527d-0697-4d04-bc63-14b069644fe4)
-
-Half Subtractor:
-![Screenshot 2024-03-25 105229](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/d48b4490-d039-42e7-b55a-ab4187c7327c)
-
-Full Subtractor:
-![Screenshot 2024-03-25 110408](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/19bcc05c-fe0d-456b-8bae-ab87e7b8ea53)
-
-8 bit ripple carry adder:
-![Screenshot 2024-03-25 111034](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/351b3750-65ae-44eb-97aa-e4856cecb779)
 
 
 RESULT:
