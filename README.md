@@ -217,9 +217,11 @@ module rippe_adder(S, Cout, X, Y,Cin);
 endmodule
 ~~~
 output:
+
 ![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/294df087-07fa-4c49-b2d9-51b322dcbd78)
 
 elaborated design:
+
 ![image](https://github.com/Gokuls2003/VLSI-LAB-EXP-1/assets/159005418/ceb72ca2-fb92-4e31-b9cb-ad732a9a743a)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
